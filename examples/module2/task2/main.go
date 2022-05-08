@@ -40,6 +40,11 @@ func index(w http.ResponseWriter, req *http.Request) {
 
 }
 
+// 4.当访问localhost/healthz 时，应返回200
+func healthz(w http.ResponseWriter, req *http.Request) {
+	   fmt.Fprintf(w, "http.StatusOK\n")
+}
+
 func GetClientIP(req *http.Request) string {
 	ipaddr := req.Header.Get("X-Real-IP")
 	if ipaddr == "" {
